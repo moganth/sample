@@ -25,7 +25,6 @@ def create_user_token(username: str, role: str) -> str:
     }
     return create_access_token(payload)
 
-
 def decode_access_token(token: str) -> TokenData:
     try:
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])

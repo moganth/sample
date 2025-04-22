@@ -1,4 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException
+from fastapi.security import OAuth2PasswordRequestForm
 from scripts.handlers.jwt_handler import signup_user_handler, login_user_handler
 from scripts.models.jwt_model import UserSignupRequest, Token, UserLoginRequest, UserLoginResponse
 from scripts.constants.api_endpoints import Endpoints
@@ -27,7 +28,7 @@ def signup_user(data: UserSignupRequest) -> Token:
     return signup_user_handler(data)
 
 @auth_router.post(Endpoints.AUTH_LOGIN)
-def login_user(data: UserLoginRequest) -> UserLoginResponse:
+def login_user(data: OAuth2PasswordRequestForm = Depends()):
     logger.info(f"User '{data.username}' is attempting to log in.")
     return login_user_handler(data)
 

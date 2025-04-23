@@ -33,7 +33,7 @@ from scripts.constants.api_endpoints import Endpoints
 client = docker.from_env()
 mongo = MongoDBConnection()
 
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl=Endpoints.AUTH_LOGIN)
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login")
 
 def run_container_advanced(data: ContainerRunAdvancedRequest, token: str = Depends(oauth2_scheme)):
     try:

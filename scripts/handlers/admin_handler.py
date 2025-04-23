@@ -7,7 +7,7 @@ from scripts.logging.logger import logger
 from scripts.constants.api_endpoints import Endpoints
 
 
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl=Endpoints.AUTH_LOGIN)
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="auth/login")
 
 mongo = MongoDBConnection()
 

@@ -14,7 +14,7 @@ from scripts.utils.jwt_utils import get_current_user_from_token
 
 
 client = docker.from_env()
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl=Endpoints.AUTH_LOGIN)
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/login")
 
 def is_valid_docker_tag(tag: str) -> bool:
     """Validate Docker image tag format."""

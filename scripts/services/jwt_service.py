@@ -22,12 +22,12 @@ def get_current_user(token: str = Depends(oauth2_scheme)) -> TokenData:
         raise HTTPException(status_code=401, detail=str(e))
 
 
-@auth_router.post(Endpoints.AUTH_SIGNUP)
+@auth_router.post("/auth/login")
 def signup_user(data: UserSignupRequest) -> Token:
     logger.info(f"User '{data.username}' is signing up with role: {data.role}")
     return signup_user_handler(data)
 
-@auth_router.post(Endpoints.AUTH_LOGIN)
+@auth_router.post("/auth/login")
 def login_user(data: OAuth2PasswordRequestForm = Depends()):
     logger.info(f"User '{data.username}' is attempting to log in.")
     return login_user_handler(data)

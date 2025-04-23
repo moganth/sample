@@ -1,6 +1,6 @@
 class Endpoints:
     AUTH_SIGNUP = "/auth/signup"
-    AUTH_LOGIN = "/login"
+    AUTH_LOGIN = "/auth/login"
 
     RATE_LIMIT_GET = "/rate-limit/{username}"
     RATE_LIMIT_SET = "/rate-limit/{username}/set"
